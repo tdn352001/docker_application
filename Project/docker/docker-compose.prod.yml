@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  se334-server:
+    container_name: se334-server-prod
+    build: 
+      context: ./../
+      dockerfile: ./docker/dockerfiles/server-dockerfile
+      args:
+        NODE_ENV: "production"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+    ports:
+      - 4001:${PORT}
+    command: npm start
+

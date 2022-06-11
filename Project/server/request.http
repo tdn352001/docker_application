@@ -1,0 +1,51 @@
+
+# Register
+POST http://localhost:4000/user/register
+Content-Type: application/json
+
+{
+    "name": "user1",
+    "email": "user1@gmail.com",
+    "password": "userpw"
+}
+
+
+###
+
+# Login
+POST http://localhost:4000/user/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "admin"
+}
+
+###
+
+# REFRESH TOKEN
+GET http://localhost:4000/user/refresh-token
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjlkY2I5YTMyMGI0YWRhMDkxZjYzMGUiLCJpYXQiOjE2NTQ1MDg0NDIsImV4cCI6MTY1NTExMzI0Mn0.6qHg94cAHKxFKYXw-dgSjCHWy4J_LDWNTCWF5xtMmes
+
+###
+#  GET USER INFO
+GET http://localhost:4000/user/information
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjlkY2I5YTMyMGI0YWRhMDkxZjYzMGUiLCJpYXQiOjE2NTQ1MDg0NDIsImV4cCI6MTY1NTExMzI0Mn0.6qHg94cAHKxFKYXw-dgSjCHWy4J_LDWNTCWF5xtMmes
+
+###
+# GET CATEGORY
+GET http://localhost:4000/api/category
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOWRiNDk3NDg3YTgzMzA5MDcxY2JhNSIsImlhdCI6MTY1NDUwMzYxNCwiZXhwIjoxNjU1MTA4NDE0fQ.JaVD22NEe5hciNjOkp7ro0z19kB5ykz8gk_KyromPR8
+
+
+###
+
+# CREATE CATEGORY
+POST http://localhost:4000/api/category
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOWRiNDk3NDg3YTgzMzA5MDcxY2JhNSIsImlhdCI6MTY1NDUwMzYxNCwiZXhwIjoxNjU1MTA4NDE0fQ.JaVD22NEe5hciNjOkp7ro0z19kB5ykz8gk_KyromPR8
+Content-Type: application/json
+
+{
+    "name": "Headphone"
+}
+

@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  mongo:
+    container_name: se334-database
+    image: mongo
+    env_file:
+      - .env
+    volumes:
+      - ../database/mongo:/data/db
+    ports:
+      - "27018:27017"
+
+  se334-server:
+    container_name: se334-server
+    build: 
+      context: ./../
+      dockerfile: ./docker/dockerfiles/server-dockerfile
+      args:
+        NODE_ENV: "development"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 4000:${PORT}
+    depends_on:
+      - mongo
+    volumes:
+      - ../server:/server
+      - /server/node_modules
+    command: npm run server
+  se334-client:
+    container_name: se334-client
+    build: 
+      context: ./../
+      dockerfile: ./docker/dockerfiles/client-dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../client:/client
+      - /client/node_modules

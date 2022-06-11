@@ -1,0 +1,14 @@
+db. getCollectionNames()
+db. getCollectionNames()
+db.getName()
+db.users.find()
+use se334-database
+show dbs
+use se334Database
+show collections
+db.users.find()
+db.users.updateOne({"name": "admin"}, {"role":2})
+db.users.updateOne({"name": "admin"},{$set: {"role":2}})
+db.users.find()
+db.users.updateOne({"name": "admin"},{$set: {"role":1}})
+db.users.find()

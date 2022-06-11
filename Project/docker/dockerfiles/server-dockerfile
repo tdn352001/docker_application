@@ -1,0 +1,12 @@
+FROM node
+WORKDIR /server
+COPY /server/package.json .
+ARG NODE_ENV
+RUN if ["${NODE_ENV}" = "development"]; \
+    then npm install; \
+    else npm install --only=production; \
+    fi
+RUN npm i bcrypt --unsafe-perm=true --allow-root --save
+COPY /server .
+EXPOSE $PORT
+CMD ["npm", "run", "server"]
